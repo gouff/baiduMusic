@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+    <link rel="icon" href="image/icon.ico">
+    <style>
+        #home .feature.segment{
+            margin: 0em;
+            padding: 6rem 0rem;
+        }
+        #home .vertical.segment{
+            padding: 4rem 0rem;
+
+        }
+
+    </style>
+    <title>Free音乐</title>
+</head>
+<body id="home">
+  <div class="ui vertical feature segment">
+    <div class="ui centered page grid">
+        <div class="fourteen wide column">
+            <div class="ui three column center aligned stackable divided grid">
+                <div class="column">
+                    <div class="ui icon header">
+                        <i class="code icon"></i>
+                        代码
+                    </div>
+                    <p>本网站的功能全部开源，欢迎在Github上查看并二次开发。</p>
+                    <div class="ui blue animated fade button">
+                        <div class="visible content">Github</div>
+                        <div class="hidden content" id="gitlink">
+                            <a style="color:#fff" href="https://github.com/ChenZhongPu/baiduMusic">
+                                前去看看
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui icon header">
+                        <i class="announcement icon"></i>
+                        关于
+                    </div>
+                    <p>听见好声音，免费下载来自百度云音乐的无损音乐。</p>
+                    <div class="ui blue animated fade button">
+                        <div class="visible content">体验</div>
+                        <div class="hidden content">
+                            <a style="color: #FFFFFF" href="#goToForm">好声音</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui icon header">
+                        <i class="money icon"></i>
+                        捐赠
+                    </div>
+                    <p>为使我们做得更好，欢迎大家的捐赠，任意金额，分文毫厘皆可。</p>
+                    <div class="ui blue animated fade button" id="payBtn">
+                        <div class="visible content">捐赠</div>
+                        <div class="hidden content">
+                            支付宝
+                        </div>
+                        <div class="ui page dimmer" id="aliPay">
+                            <div class="content">
+                                <div class="center">
+                                    <img src="image/pay.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <div style="padding-bottom: 10rem" class="ui vertical segment">
+      <div class="ui center aligned page grid">
+          <div class="row">
+              <div class="column">
+                  <div>
+                      <a href="help.html"><i class="help icon"></i>使用方法</a>
+                  </div>
+                  <h1 class="ui header"><i class="music icon"></i></h1>
+              </div>
+          </div>
+      </div>
+      <div class="ui two column centered grid">
+          <div class="column">
+              <form action="">
+                  <div class="ui fluid action input">
+                      <input type="text" placeholder="音乐地址" name="musicName" id="musicName">
+                      <div class="ui teal button" id="searchBtn">搜索</div>
+                  </div>
+              </form>
+              <a name="goToForm"></a>
+              <div class="ui negative message" id="errorMessage" style="display: none">
+
+              </div>
+              <div style="padding-top: 2rem;display: none" id="table">
+
+                  <table class="ui table segment">
+                      <tr>
+                          <td>无损品质</td>
+                          <td>689kbps</td>
+                          <td><a id="loselessURL"><i class="download disk icon"></i></a></td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+  <div class="ui inverted vertical segment" style="padding: 5rem 5rem 5rem 5rem">
+      <div class="ui stackable center aligned page grid">
+          <div class="wide column">
+              <div class="ui four column center aligned stackable grid">
+                  <div class="column">
+                      <h5 class="ui inverted header">其他项目</h5>
+                      <div class="ui inverted animated list">
+                          <a class="item" href="http://checkreg.sinaapp.com/">注册了吗</a>
+                          <a class="item" href="http://www.wandoujia.com/apps/com.chenzp.moneyking">美猴王</a>
+                          <a class="item" href="http://app.mi.com/detail/75470">对话</a>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <h5 class="ui inverted header">版权所有</h5>
+                      <div class="ui inverted animated list">
+                          <a class="item">CopyRight&copy;ChenZhongPu</a>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <h5 class="ui inverted header">免责声明</h5>
+                      <div class="ui inverted animated list">
+                          <a class="item">若涉盗版，即刻关闭</a>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <h5 class="ui inverted header">联系我们</h5>
+                      <div class="ui inverted animated list">
+                          <a class="item">18789482356@163.com</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+<script src="js/semantic.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+
+        $("#payBtn").click(function(){
+
+            $("#aliPay").dimmer('show');
+        });
+
+       $("#searchBtn").click(function(){
+           var input = $("#musicName").val();
+           if (input == ""){
+               $("#errorMessage").text("输入不能为空");
+               $("#errorMessage").css("display","block");
+           }else{
+
+               $("#errorMessage").css("display","none");
+
+                $("#table").css('display',"block");
+
+               String.prototype.format = function(){
+                   var args = arguments;
+                   return this.replace(/\{(\d+)}/g,
+                       function(m,i){
+                           return args[i];
+                       });
+               };
+
+               var songURL = "http://yinyueyun.baidu.com/data/cloud/downloadsongfile?songIds={0}&rate={1}&format={2}"
+               var reg = /song\/\d+\/download/
+               var temp = $("#musicName").val().match(reg)[0]
+               var songid = temp.substring(5, temp.indexOf("download") - 1)
+               $("#loselessURL").attr("href", songURL.format(songid,"689","flac"));
+
+           }
+       });
+
+
+    });
+</script>
+</body>
+</html>
