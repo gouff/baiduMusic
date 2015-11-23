@@ -56,7 +56,7 @@ http://yinyueshiting.baidu.com/data2/music/124383622/124380645248400320.mp3?xcod
 
 有更多需求，欢迎Email联系，会考虑对其再次开发。
 
-email : 18789482356@163.com
+email : chenloveit@163.com
 
 ##版权问题
 如果涉及版权问题，项目将立刻关闭。
